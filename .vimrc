@@ -5,12 +5,33 @@
 :set shiftwidth=2
 :set softtabstop=2
 :set cindent
-autocmd vimenter * NERDTree
 :set showcmd
-" :set cursorline "カーソルラインをハイライト
+:set incsearch	"インクリメンタル検索
+" :set cursorline "カーソルラインをハイライト(_が見えづらくなる)
 :set wildmenu	"コマンドモードの補完
-autocmd BufNewFile,BufRead *.asm set filetype=nasm "asmを開くときはファイルタイプを nasm にする
 
+"~~挿入モード~~
+"カッコの補完
+inoremap { {}<LEFT>
+inoremap ( ()<LEFT>
+inoremap " ""<LEFT>
+inoremap [ []<LEFT>
+inoremap ' ''<LEFT>
+" Ctrl+wを無効(前の単語の消去)
+inoremap <C-w> <nop> 
+
+"~~ノーマルモード~~
+"右端と左端
+noremap <S-h> ^
+noremap <S-l> $	
+"ノーマルモードでBSを押した場合、挿入モードでのBSを同じにする
+noremap <BS> i<BS><ESC>l
+
+
+autocmd VimEnter * NERDTree
+autocmd BufNewFile,BufRead *.nas set filetype=nasm "nasを開くときはファイルタイプを nasm にする
+autocmd BufNewFile,BufRead *.asm set filetype=nasm "asmを開くときはファイルタイプを nasm にする
+autocmd BufRead * hi Comment ctermfg=darkgray
 
 "dein
 if &compatible
@@ -18,14 +39,14 @@ if &compatible
 endif
 
 " Required:
-set runtimepath+=/home/ubuntu/.cache/dein/repos/github.com/Shougo/dein.vim
+set runtimepath+=/home/saito/.cache/dein/repos/github.com/Shougo/dein.vim
 
 " Required:
-call dein#begin('/home/ubuntu/.cache/dein')
+call dein#begin('/home/saito/.cache/dein')
 
 " Let dein manage dein
 " Required:
-call dein#add('/home/ubuntu/.cache/dein/repos/github.com/Shougo/dein.vim')
+call dein#add('/home/saito/.cache/dein/repos/github.com/Shougo/dein.vim')
 
 " Add or remove your plugins here like this:
 "call dein#add('Shougo/neosnippet.vim')
