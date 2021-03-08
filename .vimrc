@@ -18,14 +18,14 @@ if &compatible
 endif
 
 " Required:
-set runtimepath+=/home/saito/.cache/dein/repos/github.com/Shougo/dein.vim
+set runtimepath+=/home/ubuntu/.cache/dein/repos/github.com/Shougo/dein.vim
 
 " Required:
-call dein#begin('/home/saito/.cache/dein')
+call dein#begin('/home/ubuntu/.cache/dein')
 
 " Let dein manage dein
 " Required:
-call dein#add('/home/saito/.cache/dein/repos/github.com/Shougo/dein.vim')
+call dein#add('/home/ubuntu/.cache/dein/repos/github.com/Shougo/dein.vim')
 
 " Add or remove your plugins here like this:
 "call dein#add('Shougo/neosnippet.vim')
@@ -50,6 +50,8 @@ let g:clang_cpp_options = '-std=c++1z -stdlib=libc++ –pedantic-errors'
 " xterm-color-table.vim
 call dein#add('guns/xterm-color-table.vim')
 
+" NERDTree
+call dein#add('preservim/nerdtree')
 
 " vim-indent-guides
 call dein#add('nathanaelkane/vim-indent-guides')
