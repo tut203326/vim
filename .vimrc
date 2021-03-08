@@ -29,6 +29,10 @@ noremap <BS> i<BS><ESC>l
 
 
 autocmd VimEnter * NERDTree
+"新しくタブを開いたときNERDTreeを開く(普通にやるとうまく行かないから、タイマーを使用)
+"autocmd TabNew * call timer_start(0, { -> execute('NERDTree') })
+autocmd BufWinEnter * NERDTreeMirror
+
 autocmd BufNewFile,BufRead *.nas set filetype=nasm "nasを開くときはファイルタイプを nasm にする
 autocmd BufNewFile,BufRead *.asm set filetype=nasm "asmを開くときはファイルタイプを nasm にする
 autocmd BufRead * hi Comment ctermfg=darkgray
