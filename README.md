@@ -5,5 +5,5 @@
 2. このリポジトリから.vimrcをcloneする
 - `git clone https://github.com/tut203326/vim`
 
-3. ~/.vimrcにcloneした.vimrcファイルをコピー(移動)する
+3. ~/vimにcloneした.vimrcファイルをコピー(移動)する
 - `cp ~/vim/.vimrc ~/`
