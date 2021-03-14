@@ -9,10 +9,12 @@
 :set incsearch	"インクリメンタル検索
 " :set cursorline "カーソルラインをハイライト(_が見えづらくなる)
 :set wildmenu	"コマンドモードの補完
+:set hlsearch
 
 "~~挿入モード~~
-"カッコの補完
+"カッコの補完<CR>はenterのこと
 inoremap { {}<LEFT>
+inoremap {<Enter> {}<LEFT><Enter><ESC><S-o>
 inoremap ( ()<LEFT>
 inoremap " ""<LEFT>
 inoremap [ []<LEFT>
@@ -22,10 +24,14 @@ inoremap <C-w> <nop>
 
 "~~ノーマルモード~~
 "右端と左端
-noremap <S-h> ^
-noremap <S-l> $	
+noremap <C-h> ^
+noremap <C-l> $	
 "ノーマルモードでBSを押した場合、挿入モードでのBSを同じにする
 noremap <BS> i<BS><ESC>l
+noremap J <nop>
+noremap K <nop>
+noremap w <C-w>
+noremap <Enter> o<ESC>
 
 
 autocmd VimEnter * NERDTree
@@ -94,4 +100,12 @@ autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=232
 let g:indent_guides_color_change_percent = 30
 " ガイドの幅
 let g:indent_guides_guide_size = 1
+
+" deoplete
+call dein#add('Shougo/deoplete.nvim')
+if !has('nvim')
+  call dein#add('roxma/nvim-yarp')
+  call dein#add('roxma/vim-hug-neovim-rpc')
+endif
+let g:deoplete#enable_at_startup = 1
 
